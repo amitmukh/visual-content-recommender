@@ -1,19 +1,16 @@
-## Smart-Garage
+## Visual content recommender
 
-This repository is part of a blog post that guides users through creating a License Plate recognization system to open the garage door which uses object detection model powered by AWS DeepLens and Amazon Rekognition
+This repository guides users through creating a visual content recommender/search to search similar images using Amazon SageMaker and Amazon Elasticsearch
 
-https://aws.amazon.com/blogs/machine-learning/building-a-smart-garage-door-opener-with-aws-deeplens-and-amazon-rekognition/
+## How does it work?
 
-Following the steps described in the blog post, the final architecture is this:
+Each reference image from Caltech101 dataset is represented as a 2048 feature vector using a convolutional neural networks and gets stored into Amazon Elasticsearch KNN index
 
-![diagram](../master/architecture.png)
+![diagram](../master/pic1.png)
 
-### *License-Plate-Match-cloud.py*
-Using Amazon Rekognition, this lambda function responsible for recognising a License Plate, and match the plate number with DynamoDB. If match found then it will call the myq.py module to call 3rd party api to open the garage door
+When we preset a new query image, it's computing the related feature vector from Amazon SageMaker hosted model and query Amazon Elasticsearch KNN index to find similar images
 
-### *deeplens_lambda.py*
-This lambda function runs on the AWS DeepLens and perform inferences and the necessary logic. It uploads frames on every 30 sec to Amazon S3 when a car is detected.
-
+![diagram](../master/pic2.png)
 
 ## License
 
