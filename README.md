@@ -1,6 +1,6 @@
 ## Visual content recommender
 
-This repository guides users through creating a visual content recommender/search to search similar images using Amazon SageMaker and Amazon Elasticsearch
+This repository guides users through creating a visual content recommender/search to search similar images using Amazon SageMaker and Amazon Elasticsearch service
 
 ## How does it work?
 
